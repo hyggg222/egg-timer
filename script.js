@@ -95,22 +95,21 @@ function resetTimer() {
     // your turn: remove the "finished" class from the display
     // and put a message back in the status text
     // Hint: this is the opposite of the classList.add line in finishTimer
-    display.classList.___("finished");
-    status.___ = "Pick your egg";   // the property used to change text
+    display.classList.remove("finished");
+    status.textContent = "Pick your egg";   // the property used to change text
 
 }
 
 function finishTimer() {
     pauseTimer();
-    display.classList.add("finished");
-
+    display.classList.add("alarm");
+    document.getElementById("timer-card").classList.add("alarm");
     // change this: your message
     status.textContent = "Your egg is ready!";
 
     // your turn: make something else happen (see the extras)
     // needs the Alarm Sound extra pasted in first
-    ___();   // the name of the sound function
-
+    beep();   // the name of the sound function
 }
 
 // addEventListener means: when this happens to this element, run this function.
@@ -123,15 +122,15 @@ resetButton.addEventListener("click", resetTimer);
 // isRunning, then attach it with addEventListener.
 // Hint: one button, two jobs. Check whether the timer is running.
 function toggleTimer() {
-    if (___) {
+    if (isRunning) {
         pauseTimer();
     } else {
-        ___();
+        startTimer();
     }
 }
 
 // Hint: the same method used for resetButton
-startButton.___("click", toggleTimer);
+startButton.addEventListener("click", toggleTimer);
 
 // querySelectorAll finds every element matching a CSS selector.
 // ".preset" means every element with class="preset"
@@ -183,9 +182,25 @@ document.addEventListener("keydown", function (e) {
     }
 });
 
+document.getElementById("plusBtn").addEventListener("click", function () {
+    totalSeconds = totalSeconds + 60;   // change this: how much to add
+     // Hint: if time left is bigger than the start time, the start time should catch up // (only         matters if you also added the progress ring) 
+    if (totalSeconds > startSeconds) {
+         startSeconds = ___; 
+     } 
+     updateDisplay();
+});
+
+document.getElementById("themeBtn").addEventListener("click", function () {
+    // toggle adds the class if it is missing and removes it if it is there
+    document.body.classList.toggle("dark");
+});
+
+
+
 
 // Stretch: make it beep three times. setTimeout runs a function once after
 // a delay in milliseconds. Each beep lasts 0.5 seconds.
 beep();
-setTimeout(beep, ___);   // second beep, 0.6 seconds later
-setTimeout(beep, ___);   // third beep, 1.2 seconds after the first
+setTimeout(beep, 600);   // second beep, 0.6 seconds later
+setTimeout(beep, 1200);   // third beep, 1.2 seconds after the first

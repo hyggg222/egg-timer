@@ -73,5 +73,26 @@ body {
     transition: stroke-dashoffset 1s linear;
 }
 
+/* @keyframes describes an animation. 0% is the start, 100% is the end */
+@keyframes flash {
+    0%   { background-color: var(--card); }
+    50%  { background-color: #ffd6d6; }   /* change this: flash colour */
+    100% { background-color: var(--card); }
+}
+
+.alarm {
+    animation: flash 0.8s infinite;   /* name, length, how many times */
+}
+
+/* when body has the class "dark", these replace the colours in :root.
+   Everything using var(--background) and so on changes by itself */
+body.dark {
+    --background: #1e1e2e;
+    --card: #2a2a3d;
+    --text: #f0f0f0;
+}
+
+
+
 
 
