@@ -12,8 +12,45 @@
 </head>
 
 <body>
+    <!-- your elements go here  -->
+    <div id="timer-card">
+        <!-- paste the title, time, buttons, minutes box and presets here, BEFORE </div> -->
+         <!-- change this: the title -->
+        <h1 id="title">Egg Timer</h1>
 
-    <!-- your elements go here -->
+        <!-- a line of text for messages like "Done" -->
+        <p id="status">Pick your egg</p>
+
+        <!-- put this inside the timer-card div, just above <h2 id="time"> -->
+
+        <!-- SVG draws shapes with code. Two circles sit on top of each other:
+         a grey track and a coloured ring -->
+        <svg width="220" height="220" viewBox="0 0 220 220">
+            <circle cx="110" cy="110" r="90" class="ring-track"></circle>
+            <circle cx="110" cy="110" r="90" class="ring-fill" id="ringFill"></circle>
+        </svg>
+
+
+        <!-- JavaScript will change this every second.
+            It starts as 5:00 so it is not empty before the script loads -->
+        <h2 id="time">5:00</h2>
+
+        <button id="startBtn" class="btn">Start</button>
+        <button id="resetBtn" class="btn">Reset</button>
+
+        <label for="minutesInput">Minutes:</label>
+        <!-- value is the starting number.
+            change this: the limits and default -->
+        <input type="number" id="minutesInput" min="1" max="60" value="5">
+
+        <!-- change this: the times and labels.-->
+        <div id="presets">
+            <button class="preset" data-seconds="360">Soft</button>
+            <button class="preset" data-seconds="480">Medium</button>
+            <button class="preset" data-seconds="600">Hard</button>
+        </div>
+    </div>
+
 
     <!-- links your JavaScript file. Keep it at the bottom so the elements
          already exist when the script runs -->

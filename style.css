@@ -1,0 +1,77 @@
+/* change this: pick your own colours*/
+:root {
+    --background: #fdf6e3;
+    --card: #ffffff;
+    --accent: #f4a261;
+    --text: #333333;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    /* change this: the font.*/
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    display: flex;
+    justify-content: center;   /* centres left to right */
+    align-items: center;       /* centres top to bottom */
+    min-height: 100vh;         /* 100vh is the full window height */
+    margin: 0;
+}
+
+#timer-card {
+    background-color: var(--card);
+    padding: 40px;          /* space inside the box */
+    border-radius: 24px;    /* rounded corners, 0 is square */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 320px;
+}
+
+#time {
+    font-size: 4rem;     /* change this: size of the numbers */
+    margin: 20px 0;
+    /* keeps every digit the same width so the numbers do not wobble */
+    font-variant-numeric: tabular-nums;
+}
+
+.btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 5px;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.15s;   /* animates changes over 0.15 seconds */
+}
+
+.btn:hover {
+    transform: scale(1.05);   /* only while the mouse is over it */
+}
+
+.btn:active {
+    transform: scale(0.95);   /* only while it is being pressed */
+}
+
+.ring-track {
+    fill: none;
+    stroke: #eeeeee;
+    stroke-width: 12;   /* change this: thickness */
+}
+
+.ring-fill {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 12;
+    stroke-linecap: round;
+    /* circumference = 2 x 3.14159 x radius 90 = about 565.5 */
+    stroke-dasharray: 565.5;
+    /* start from the top instead of the right */
+    transform: rotate(-90deg);
+    transform-origin: center;
+    transition: stroke-dashoffset 1s linear;
+}
+
+
+
