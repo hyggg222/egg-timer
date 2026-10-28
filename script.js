@@ -52,8 +52,8 @@ function tick() {
     // your turn: if totalSeconds has reached 0, call a function
     // called finishTimer (when time runs out, further below)
    // Hint: <= means "less than or equal to"
-    if (totalSeconds ___ 0) {
-         ___();   // the function that ends the timer
+    if (totalSeconds <= 0) {
+         finishTimer();   // the function that ends the timer
     }
 
 }
@@ -88,8 +88,8 @@ function resetTimer() {
     // your turn: remove the "finished" class from the display
     // and put a message back in the status text
     // Hint: this is the opposite of the classList.add line in finishTimer
-    display.classList.___("finished");
-    status.___ = "Pick your egg";   // the property used to change text
+    display.classList.remove("finished");
+    status.textContent = "Pick your egg";   // the property used to change text
 
 }
 
@@ -102,7 +102,7 @@ function finishTimer() {
 
     // your turn: make something else happen (see the extras)
     // needs the Alarm Sound extra pasted in first
-    ___();   // the name of the sound function
+    beep();   // the name of the sound function
 
 }   // addEventListener means: when this happens to this element, run this function.
 // No brackets after resetTimer, because we are passing the function in,
@@ -115,13 +115,13 @@ resetButton.addEventListener("click", resetTimer);
 // isRunning, then attach it with addEventListener.
 // Hint: one button, two jobs. Check whether the timer is running.
 function toggleTimer() {
-    if (___) {
+    if (isRunning) {
         pauseTimer();
     } else {
-        ___();
+        startTimer();
     }
 }
 
 // Hint: the same method used for resetButton
-startButton.___("click", toggleTimer);
+startButton.addEventListener("click", toggleTimer);
 
